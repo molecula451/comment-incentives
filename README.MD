@@ -18,14 +18,38 @@ This document outlines the setup for the UbiquiBot comment incentives system, a 
 | `evmPrivateKey`       | `a29c749482b5d7e5987895a76f3d23002f3a3e1fabb26d370b7403ddead8926a`                                                                                      |
 
 
-### Generating a new `evmPrivateKeyEncrypted`
+### Generating a new `evmPrivateKeyEncrypted for the ubiquibot-config.yaml`
 
 To generate a new encrypted EVM private key:
 
-1. Export the new wallet's EVM private key.
-2. Visit https://pay.ubq.fi/keygen.
-3. Enter the `x25519_private_key` into the "X25519_PRIVATE_KEY" field (sent via Telegram DM on Dec 25).
-4. Input the EVM private key into the "PLAIN_TEXT" field.
-5. Click "Encrypt".
-6. Place the "CIPHER_TEXT" value into the bot's configuration file (location unspecified).
-   Source: [UbiquiBot GitHub Issue](https://github.com/ubiquibot/comment-incentives/issues/3#issuecomment-1919082099)
+Step 1: Visit the Key Generation Tool
+
+Navigate to the permit key generation tool on the web.
+
+Step 2: Generate a Key
+
+Click on the "Generate" button on the webpage to initiate the key generation process.
+
+Step 3: Input Your EVM Private Key
+
+In the provided plain text field, paste your EVM Private Key. Ensure that it is 32 bytes in length.
+
+Step 4: Encrypt Your Private Key
+
+Once you've pasted your private key, click on the "Encrypt" button. This action will encrypt your private key, enhancing its security.
+
+Step 5: Update GitHub Secrets
+
+Copy the newly generated private key and update it on your GitHub Actions secret. Find the field labeled x25519_PRIVATE_KEY and replace its content with your generated x25519 private key.
+
+Step 6: Update Configuration File
+
+Next, take the cipher text, which is the encrypted version of your private key, and paste it into your ubiquibot-config.yaml file. Look for the field labeled evmEncryptedPrivate and replace its content with the cipher text.
+
+Step 7: Double Check
+
+Ensure that you've updated the GitHub Actions secret field x25519_PRIVATE_KEY with your already generated x25519 private key. This double check ensures that all components are aligned and your system remains secure.
+
+Conclusion
+
+Congratulations! You've successfully generated and implemented a permit key for your application or platform. By following these steps, you've enhanced the security of your system, safeguarding it against unauthorized access.
